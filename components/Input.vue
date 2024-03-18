@@ -39,30 +39,36 @@ const props = defineProps({
     default: "",
   },
 });
-
 const emit = defineEmits(["update:modelValue"]);
+
 const modelValue = useSyncProps<string>(props, "modelValue", emit);
+
+const inputId = `input-${Math.random().toString(36).slice(2)}`;
 </script>
 
 <template>
-  <div class="relative flex flex-col w-full">
-    <input
-      :name="name"
-      :data-testid="testId"
-      :type="type"
-      :disabled="disabled"
-      :class="inputClasses"
-      :placeholder="placeholder"
-      :data-invalid="invalid"
-      :data-disabled="disabled"
-      v-model="modelValue"
-    />
-    <label
-      :class="labelClasses"
-      :data-invalid="invalid"
-      :data-disabled="disabled"
-      >{{ label }}
-    </label>
+  <div>
+    <div class="relative">
+      <input
+        :id="inputId"
+        :name="name"
+        v-model="modelValue"
+        :type="type"
+        :disabled="disabled"
+        :class="inputClasses"
+        :data-invalid="invalid"
+        :data-disabled="disabled"
+        :data-testid="testId"
+        placeholder=" "
+      />
+      <label
+        :for="inputId"
+        :class="labelClasses"
+        :data-invalid="invalid"
+        :data-disabled="disabled"
+        >{{ label }}
+      </label>
+    </div>
     <p
       :class="helperTextClasses"
       :data-invalid="invalid"
