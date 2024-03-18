@@ -1,7 +1,6 @@
 import { expect, test } from "@playwright/test";
 import {
   clickApplyNowButton,
-  clickApplyNowButtonFromHero,
   clickModalSubmitButton,
   dragNthHandleForValue,
   fillEmailInput,
@@ -34,34 +33,6 @@ test("User can close the modal", async ({ page }) => {
   await closeButton?.click();
 
   await waitForModalNotVisible(page);
-});
-
-test.skip("User can click apply button (from hero) and see the positive outcome (with defaults)", async ({
-  page,
-}) => {
-  await page.waitForTimeout(500);
-  await clickApplyNowButtonFromHero(page);
-  await waitForModalIsVisible(page);
-
-  await fillNameInput(page);
-  await fillLastNameInput(page);
-  await fillEmailInput(page);
-  await fillPhoneNumberInput(page);
-  await fillMonthlyIncomeInput(page, "1001");
-  await clickModalSubmitButton(page);
-
-  await page.waitForURL("**/positive-outcome");
-
-  const loanAmount = await page.textContent("[data-testid=loanAmountValue]");
-  expect(loanAmount).toContain("300 €");
-  const loanPeriodValue = await page.textContent(
-    "[data-testid=loanPeriodValue]"
-  );
-  expect(loanPeriodValue).toContain("48 months");
-  const loanMonthlyPayment = await page.textContent(
-    "[data-testid=loanMonthlyPaymentValue]"
-  );
-  expect(loanMonthlyPayment).toContain("6.25 €");
 });
 
 test("User can apply for a loan and see the positive outcome (with defaults)", async ({

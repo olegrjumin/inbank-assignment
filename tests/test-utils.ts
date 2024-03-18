@@ -6,12 +6,6 @@ const clickApplyNowButton = async (page: Page) => {
   await button?.click();
 };
 
-const clickApplyNowButtonFromHero = async (page: Page) => {
-  const button = page.locator("[data-testid=heroApplyNowButton]");
-  await button.scrollIntoViewIfNeeded();
-  await button?.click();
-};
-
 const waitForModalIsVisible = async (page: Page) => {
   const modal = page.locator("[data-testid=modal]");
   await modal.waitFor({ state: "visible" });
@@ -79,7 +73,6 @@ const dragNthHandleForValue = async (
 
 export {
   clickApplyNowButton,
-  clickApplyNowButtonFromHero,
   clickModalSubmitButton,
   dragNthHandleForValue,
   fillEmailInput,
