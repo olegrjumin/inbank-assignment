@@ -25,8 +25,8 @@ const isModalOpen = ref(false);
           <div
             class="relative text-center flex flex-col items-center justify-center"
           >
-            <span>Mini loan</span>
-            <h1 class="text-center text-6xl xl:text-8xl">
+            <span class="font-medium">Mini loan</span>
+            <h1 class="text-center text-6xl xl:text-8xl font-normal">
               <span><i>Take charge</i> of unexpected costs</span>
             </h1>
             <p class="mt-2 text-xs lg:text-base">
