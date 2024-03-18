@@ -29,6 +29,8 @@ export default <Partial<Config>>{
         "gray-200": "#606060",
         "gray-300": "#9C9C9C",
         "gray-400": "#DEDEDE",
+
+        "gray-500": "#FBFAF9",
         error: "#EB5757",
       },
 
