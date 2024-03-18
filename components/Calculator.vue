@@ -1,8 +1,6 @@
 <script lang="ts" setup>
 import { useUserData } from "~/store";
 
-import Slider from "./Slider.vue";
-
 const { setUserData, userData } = useUserData();
 
 const periods = Array.from({ length: 36 }, (_, i) => {
@@ -92,7 +90,7 @@ onMounted(() => {
                   testId="amountInput"
                   type="number"
                   name="amount"
-                  label="Label"
+                  label="Amount"
                   placeholder="Placeholder"
                   v-model="amount"
                   :invalid="!isValidAmount"
@@ -118,7 +116,7 @@ onMounted(() => {
                 <Select
                   testId="periodSelect"
                   :options="periods"
-                  label="Label"
+                  label="Period"
                   v-model="selectedPeriod"
                 />
               </div>
