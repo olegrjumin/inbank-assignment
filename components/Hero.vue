@@ -51,7 +51,7 @@ const isModalOpen = ref(false);
           <NuxtImg
             width="840"
             height="839"
-            class="object-scale-down w-full"
+            class="w-full"
             src="/man-dog-laundry.png"
             alt="Man and dog doing laundry"
           />
